@@ -1,0 +1,189 @@
+---
+title: "Presentation Ninja"
+subtitle: "⚔ with xaringan"
+author: "Raju Rimal"
+institute: "University of Oslo"
+date: "`r format(Sys.Date(), '%d %B, %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ['default', 'assets/uio.css', 'assets/tachyons.css'] # 'assets/chota.css', 
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["middle", "title-slide"]
+      ratio: "16:10"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+background-image: url(assets/UiO-Seal.png)
+background-position: 95% 50px
+background-size: 100px 100px
+name: logo
+layout: true
+
+---
+class: center, middle
+template: logo
+
+# xaringan
+### `/ʃaː.'riŋ.ɡan/`
+
+---
+layout: false
+class: inverse, center, middle
+
+# Get Started
+
+---
+layout: false
+class: left, top
+
+# Code + Plot + Two Column Layout
+
+.flex[
+.w-100[
+### R-code block
+
+```{r hist, echo = TRUE, eval = FALSE}
+library(ggplot2)
+set.seed(100)
+random_numbers <- rnorm(1000)
+ggplot(data.frame(x = random_numbers)) +
+  geom_histogram(aes(x = x), 
+    bins = 30, 
+    fill = "lightgrey", 
+    color = "darkgrey") +
+  theme_minimal() +
+  labs(y = NULL, x = NULL) +
+  ggtitle("Histogram of Random Normal Variate")
+```
+].w-100[
+
+### Plot
+
+```{r hist, eval = TRUE, echo = FALSE, fig.asp = 0.7, dev='svg', fig.width=4, out.width='100%'}
+```
+
+]
+]
+
+---
+class: left, top
+
+# Tables
+
+```{r, echo = TRUE}
+names(mtcars) <- toupper(names(mtcars))
+knitr::kable(head(mtcars, 4), table.attr = 'class="striped"', format="html")
+```
+
+---
+class: left, top
+
+# Backgrounds & Columns
+
+You can create columns and also add background colour to the columns.
+
+.flex.justify-between.h-50[
+.w-third.bg-light.pa2.mh2.h-100[
+### Box light
+
+First column with light background.
+
+].w-third.bg-grey.pa2.mh2.h-100[
+### Box gray
+
+Second column with grey background.
+].w-third.bg-dark.pa2.mh2.h-100.text-light[
+### Box dark
+
+Last column with dark background.
+]
+]
+
+---
+.left-column.text-condensed[
+# Remark Defaults
+## Heading 1.1
+
+].right-column[
+### Mean, Median and Mode
+
+**Mean**
+: The first measure we will study is the mean also known as average. Mean can be calculated by adding all data points and dividing by the number of data points.
+$$\bar{X} = \frac{\sum_{i=1}^n{X}}{N}$$
+
+**Median**
+: Median is the middle value of a sorted data set; found by ordering all data points and picking out the one in the middle (or if there are two middle numbers, taking the mean of those two numbers). 
+
+**Mode**
+: Mode is the most frequent number — that is, the number that occurs the highest number of times.
+
+.f4.footnote[
+  source: [https://medium.com](https://medium.com/@nhan.tran/mean-median-an-mode-in-statistics-3359d3774b0b)
+]
+
+]
+
+---
+
+.left-column.text-condensed[
+# Remark Defaults
+## Heading 1.2
+
+].right-column[
+### Dispersion
+
+**Range**
+: The range is the difference between the largest and the smallest observation in the data.
+
+**Interquartile Range**
+: Interquartile range is defined as the difference between the 25th and 75th percentile (also called the first and third quartile)
+
+**Standard Deviation**
+: Standard deviation (SD) is the most commonly used measure of dispersion. It is a measure of spread of data about the mean.
+    $$S = \sqrt{\frac{\sum{\left(x - \bar{x}\right)^2}}{n-1}}$$
+
+.f4.footnote[
+  source: [https://www.ncbi.nlm.nih.gov](https://dx.doi.org/10.4103%2F0976-500X.85931)
+]
+]
+
+---
+class:  middle, left
+background-image: linear-gradient(to right, #ccc 50%, whitesmoke 50%)
+
+.pull-left[
+
+# Incremental Bullets
+
+].pull-right.f-subheadline.lh-solid.incremental-heading[
+
++ First Point
+{{content}}
+
+]
+
+--
+
++ Second Point
+{{content}}
+
+--
+
++ Additional Agenda
+{{content}}
+
+--
+
++ Final Wrapup
+
+---
+class: center, middle, inverse
+
+# Thank You
