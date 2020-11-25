@@ -1,4 +1,4 @@
-name: UiO HTML Presentation
+name: UiO Remark Presentation
 description: >
    UiO HTML presentaion based on remark.js powered by xariangan package and Rmarkdown
 create_dir: FALSE
